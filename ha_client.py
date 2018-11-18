@@ -78,8 +78,9 @@ class HomeAssistantClient(object):
                         entity.lower(),
                         name.lower()
                     )
-                    if score > best_score:
-                        proposed_best_entity = {
+                    if score > best_score && name.lower() != 'all lights':
+                        best_score = score
+                        best_entity = {
                             "id": state['entity_id'],
                             "dev_name":
                                 state['attributes'].get(
@@ -88,9 +89,7 @@ class HomeAssistantClient(object):
                                 ),
                             "state": state['state'],
                             "best_score": best_score}
-                        if proposed_best_entity != 'all_lights':
-                            best_entity = proposed_best_entity
-                            best_score = score
+                        
                             
             except KeyError:
                 pass
