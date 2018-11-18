@@ -74,11 +74,13 @@ class HomeAssistantClient(object):
                     state['entity_id'],
                     state['attributes']['friendly_name']
                 ]:
+                    if state[attributes'].get('friendly_name').tolower() == 'all lights':
+                        continue
                     score = fuzz.token_sort_ratio(
                         entity.lower(),
                         name.lower()
                     )
-                    if score > best_score and name.lower() != 'all lights':
+                    if score > best_score:
                         best_score = score
                         best_entity = {
                             "id": state['entity_id'],
