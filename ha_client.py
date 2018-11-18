@@ -78,7 +78,7 @@ class HomeAssistantClient(object):
                         entity.lower(),
                         name.lower()
                     )
-                    if score > best_score && name.lower() != 'all lights':
+                    if score > best_score and name.lower() != 'all lights':
                         best_score = score
                         best_entity = {
                             "id": state['entity_id'],
