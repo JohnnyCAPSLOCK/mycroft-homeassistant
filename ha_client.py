@@ -4,7 +4,7 @@ import json
 from requests.exceptions import Timeout, RequestException
 
 
-__author__ = 'btotharye'
+__author__ = 'jcapslock'
 
 # Timeout time for HA requests
 TIMEOUT = 10
